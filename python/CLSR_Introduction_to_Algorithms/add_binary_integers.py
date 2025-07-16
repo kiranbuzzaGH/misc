@@ -4,7 +4,7 @@ def add_binary_integers(A, B, n):
     """
     Add two n-bit binary integers
 
-    Arguements
+    Arguments
     A -- n-bit integer stored in a list
     B -- n-bit integer stored in a list
     n -- length of the lists
