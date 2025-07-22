@@ -23,5 +23,7 @@ public class ClockTest {
         clock1.setSecond(second);
 
         clock1.displayTime();
+
+        input.close();
     }
 }

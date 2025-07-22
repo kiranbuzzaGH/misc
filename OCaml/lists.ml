@@ -17,3 +17,8 @@ let rec drop n l =
   if n = 0 then l else
     match l with
       h::t -> drop (n - 1) t
+
+let rec map f l =
+  match l with
+    [] -> []
+  | h::t -> f h :: map f t

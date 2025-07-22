@@ -1,7 +1,5 @@
 // Creates instances of object car and manipulates them
 
-import java.util.Scanner;
-
 public class CarApplication {
     public static void main(String[] args) {
         Car car1 = new Car("Ford", "2019", 15000);
