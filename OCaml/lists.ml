@@ -22,3 +22,10 @@ let rec map f l =
   match l with
     [] -> []
   | h::t -> f h :: map f t
+
+let rec member n l =
+  match l with
+    [] -> false
+  | h::t -> n = h || member n t
+
+
