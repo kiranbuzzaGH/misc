@@ -9,14 +9,24 @@ let rec append a b =
   | h::t -> h :: append t b
 
 let rec take n l =
-  if n = 0 then [] else
-    match l with
-      h::t -> h :: take (n - 1) t
+  match l with
+    [] ->
+      if n = 0
+        then []
+        else raise (Invalid_argument "take")
+  | h::t ->
+      if n < 0 then raise (Invalid_argument "take") else
+        if n = 0 then [] else h :: take (n - 1) t
 
 let rec drop n l =
-  if n = 0 then l else
-    match l with
-      h::t -> drop (n - 1) t
+  match l with
+    [] ->
+      if n = 0
+        then []
+        else raise (Invalid_argument "drop")
+  | h::t ->
+      if n < 0 then raise (Invalid_argument "drop") else
+        if n = 0 then l else drop (n - 1) t
 
 let rec map f l =
   match l with
