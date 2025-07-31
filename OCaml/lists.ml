@@ -38,4 +38,26 @@ let rec member n l =
     [] -> false
   | h::t -> n = h || member n t
 
+let rec merge cmp a b =
+  match a, b with
+    l, [] -> l
+  | [], l -> l
+  | ha::ta, hb::tb ->
+      if cmp ha hb
+        then ha :: merge cmp ta b
+        else hb :: merge cmp a tb
 
+let rec msort cmp l =
+  match l with
+    [] -> []
+  | [x] -> [x]
+  | h::t ->
+      let len = length l / 2 in
+        let left = take len l in
+          let right = drop len l in
+            merge cmp (msort cmp left) (msort cmp right)
+
+let rec sum l =
+  match l with
+    [] -> 0
+  | h::t -> h + sum t
